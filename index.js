@@ -1,14 +1,23 @@
-const express = require("express"); //importa o módulo express neste arquivo
-const app = express(); //iniciando o express
+const express = require("express"); 
+const app = express(); 
 
-//criando a rota inicial
+
 app.get("/", function(req,res){
-    res.send("<h1>Bem vindo ao meu site!</h1>");
+    res.send("<h1>Welcome to Silent Hill Shopping</h1>");
 })
 
 //rota do cadastro de produtos
-app.get("/produtos", function(req,res){
-    res.send("<h1>Lista de Produtos!</h1>");
+app.get("/products", function(req,res){
+    res.send("<h1>Lista de Produtos!</h1><ol><li>Bloody Bunny</li><li>White Claudia</li><li>Bread</li><li>Flauros</li></ol>");
+})
+
+//rota cadastro de clientes
+app.get("/clients", function(req,res){
+    res.send("<h1>Cadastro de Clientes!</h1><ol><li>Heather Mason</li><li>Harry Mason</li><li>Walter</li><li>Flauros</li></ol>");
+})
+
+app.get("/carrinho", function(req,res){
+    res.send("<h1>Produtos selecionados para o Carrinho!</h1><ol><li>Bloody Bunny</li><li>White Claudia</li></ol>");
 })
 
 //rota com parametro 
@@ -32,9 +41,8 @@ app.get("/cadastro/:nome?", function(req,res){
 
 app.listen(process.env.PORT ?? 3000,function(erro){  // cria a aplicação na porta 4000
     if (erro){
-        console.log("Erro ao Iniciar.");
+        console.log("Pyramid Head Found You!");
     }else{
-        console.log("Servidor Iniciado.");
+        console.log("Welcome to Silent Hill!");
     }
 })
-
